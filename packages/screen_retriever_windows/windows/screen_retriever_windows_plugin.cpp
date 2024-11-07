@@ -172,6 +172,19 @@ flutter::EncodableMap MonitorToEncodableMap(HMONITOR monitor) {
   display[flutter::EncodableValue("scaleFactor")] =
       flutter::EncodableValue(scale_factor);
 
+  // 获取显示器对应的窗口句柄
+  MONITORINFOEX monitorInfo;
+  monitorInfo.cbSize = sizeof(MONITORINFOEX);
+  GetMonitorInfo(monitor, &monitorInfo);
+  
+  HWND hwnd = WindowFromPoint({
+    monitorInfo.rcMonitor.left + (monitorInfo.rcMonitor.right - monitorInfo.rcMonitor.left) / 2,
+    monitorInfo.rcMonitor.top + (monitorInfo.rcMonitor.bottom - monitorInfo.rcMonitor.top) / 2
+  });
+
+  // 添加句柄
+  display[flutter::EncodableValue("handle")] = flutter::EncodableValue(reinterpret_cast<int64_t>(hwnd));
+
   return display;
 }
 

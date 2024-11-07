@@ -16,6 +16,7 @@ class Display {
     this.visiblePosition,
     this.visibleSize,
     this.scaleFactor,
+    this.handle,
   });
 
   factory Display.fromJson(Map<String, dynamic> json) =>
@@ -38,6 +39,12 @@ class Display {
 
   /// The scale factor of the display.
   final num? scaleFactor;
+
+  /// The native window handle, if available.
+  /// On Windows, this would be HWND.
+  /// On macOS, this would be NSWindow/NSView pointer.
+  /// On Linux, this would be Window XID.
+  final int? handle;
 
   Map<String, dynamic> toJson() => _$DisplayToJson(this);
 }

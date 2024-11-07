@@ -17,6 +17,7 @@ Display _$DisplayFromJson(Map<String, dynamic> json) => Display(
       visibleSize: _$JsonConverterFromJson<Map<Object?, Object?>, Size>(
           json['visibleSize'], const _SizeConverter().fromJson),
       scaleFactor: json['scaleFactor'] as num?,
+      handle: json['handle'] as int?,
     );
 
 Map<String, dynamic> _$DisplayToJson(Display instance) => <String, dynamic>{
@@ -28,6 +29,7 @@ Map<String, dynamic> _$DisplayToJson(Display instance) => <String, dynamic>{
       'visibleSize': _$JsonConverterToJson<Map<Object?, Object?>, Size>(
           instance.visibleSize, const _SizeConverter().toJson),
       'scaleFactor': instance.scaleFactor,
+      'handle': instance.handle,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(
