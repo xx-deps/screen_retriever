@@ -2,6 +2,7 @@ name: screen_retriever_windows
 description: Windows implementation of the screen_retriever plugin.
 version: 0.2.0
 repository: https://github.com/leanflutter/screen_retriever/tree/main/packages/screen_retriever_windows
+publish_to: none
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -10,7 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  screen_retriever_platform_interface: ^0.2.0
+  screen_retriever_platform_interface: 
+    path: ../screen_retriever_platform_interface
 
 dev_dependencies:
   flutter_test:
